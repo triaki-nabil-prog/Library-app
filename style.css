@@ -167,7 +167,7 @@ input:focus {
 .deleteButton {
     grid-area: delete;
     width: fit-content;
-    padding: 5px;
+    padding: 5px 8px;
     font-weight: bolder;
     font-size: 1.1rem;
     border-radius: 50%;

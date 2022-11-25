@@ -1,14 +1,13 @@
-let title = document.querySelector(".bookTitle");
-let author = document.querySelector(".author");
-let pages = document.querySelector(".pages");
-let submit = document.querySelector(".submit");
-let displayDiv = document.querySelector(".booksList");
-let deleteButtons = document.getElementsByClassName("deleteButton");
+const title = document.querySelector(".bookTitle");
+const author = document.querySelector(".author");
+const pages = document.querySelector(".pages");
+const submit = document.querySelector(".submit");
+const displayDiv = document.querySelector(".booksList");
+// const deleteButtons = document.getElementsByClassName("deleteButton");
 const cards = document.getElementsByClassName("card");
 let myLibrary = [];
 
 
-submit.addEventListener("click", addBookToLibrary);
 
 
 
@@ -53,8 +52,8 @@ function display() {
         const buttonDel = document.createElement("button")
         buttonDel.classList.add("deleteButton");
         buttonDel.textContent = "X";
+        buttonDel.id = i;
         newCard.appendChild(buttonDel);
-
 
     }
 
@@ -70,6 +69,25 @@ const talesOfDemonsAndGods = new book("Tales of Demons and Gods", "Mad Snail", "
 myLibrary.push(talesOfDemonsAndGods);
 display();
 
+
+
+
+// i am not proud how i made this  code 
+// delete the book when x button is clicked 
+submit.addEventListener("click", addBookToLibrary);
+displayDiv.addEventListener("click", () => {
+
+    const deleteButtons = document.querySelectorAll(".deleteButton");
+    deleteButtons.forEach(function (e) {
+        e.addEventListener("click", (e) => {
+            var index = e.target.id;
+            console.log(index);
+            myLibrary.splice(index, 1);
+            displayDiv.innerHTML = ''
+            display();
+        });
+    });
+});
 
 
 
