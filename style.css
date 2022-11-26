@@ -134,9 +134,10 @@ input:focus {
     background-color: #FDF0D5;
     padding: 20px;
     display: grid;
-    grid-template-columns: 1fr min-content;
+    width: ;
+    grid-template-columns: minmax(0, 1fr) min-content;
     grid-template-areas: "title delete" "author author" "pages pages";
-
+    
 
     -webkit-box-shadow: 0 0 7.5px 0.5px #003049;
     -moz-box-shadow: 0 0 7.5px 0.5px #003049;
@@ -146,15 +147,20 @@ input:focus {
 }
 
 .title {
+    
     grid-area: title;
+    border-bottom: 1px solid #780000;
+    
 }
 
 .author {
     grid-area: author;
+    border-bottom: 1px solid #780000;
 }
 
 .pages {
     grid-area: pages;
+    border-bottom: 1px solid #780000;
 }
 
 .card>div {
@@ -162,11 +168,13 @@ input:focus {
     font-weight: 550;
     margin-top: 5px;
     font-size: 1.2rem;
+    overflow-wrap: break-word;
 }
 
 .deleteButton {
     grid-area: delete;
     width: fit-content;
+    height: fit-content;
     padding: 5px 8px;
     font-weight: bolder;
     font-size: 1.1rem;

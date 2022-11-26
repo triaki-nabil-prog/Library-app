@@ -3,15 +3,8 @@ const author = document.querySelector(".author");
 const pages = document.querySelector(".pages");
 const submit = document.querySelector(".submit");
 const displayDiv = document.querySelector(".booksList");
-// const deleteButtons = document.getElementsByClassName("deleteButton");
 const cards = document.getElementsByClassName("card");
 let myLibrary = [];
-
-
-
-
-
-
 
 function book(title, author, pages) {
     this.title = title;
@@ -32,7 +25,7 @@ function display() {
 
         const newCard = document.createElement("div");
         newCard.classList.add('card');
-        displayDiv.appendChild(newCard);
+        displayDiv.prepend(newCard);
 
         const newTitle = document.createElement("div");
         newTitle.classList.add("title");
@@ -54,12 +47,8 @@ function display() {
         buttonDel.textContent = "X";
         buttonDel.id = i;
         newCard.appendChild(buttonDel);
-
     }
-
 }
-
-
 
 const grid = new book("Overgeard", "park Saenal", "1429");
 myLibrary.push(grid);
@@ -69,11 +58,6 @@ const talesOfDemonsAndGods = new book("Tales of Demons and Gods", "Mad Snail", "
 myLibrary.push(talesOfDemonsAndGods);
 display();
 
-
-
-
-// i am not proud how i made this  code 
-// delete the book when x button is clicked 
 submit.addEventListener("click", addBookToLibrary);
 displayDiv.addEventListener("mouseover", (event) => {
     event.stopPropagation();
