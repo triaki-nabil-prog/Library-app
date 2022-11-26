@@ -136,7 +136,7 @@ input:focus {
     display: grid;
     
     grid-template-columns: minmax(0, 1fr) min-content;
-    grid-template-areas: "title delete" "author author" "pages pages";
+    grid-template-areas: "title delete" "author ." "pages status";
     
 
     -webkit-box-shadow: 0 0 7.5px 0.5px #003049;
@@ -161,6 +161,11 @@ input:focus {
 .pages {
     grid-area: pages;
     border-bottom: 1px solid #780000;
+}
+
+.status{
+    grid-area: status;
+
 }
 
 .card>div {

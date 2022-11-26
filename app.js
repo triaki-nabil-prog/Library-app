@@ -6,10 +6,11 @@ const displayDiv = document.querySelector(".booksList");
 const cards = document.getElementsByClassName("card");
 let myLibrary = [];
 
-function book(title, author, pages) {
+function book(title, author, pages,readStatus) {
     this.title = title;
     this.author = author;
     this.pages = pages;
+    this.readStatus = readStatus;
 }
 
 function addBookToLibrary(event) {
@@ -47,6 +48,15 @@ function display() {
         buttonDel.textContent = "X";
         buttonDel.id = i;
         newCard.appendChild(buttonDel);
+
+        const check = document.createElement("input");
+        check.type = "checkbox";
+        check.name = "name";
+        check.value = "value";
+        check.id = "id";
+        check.classList.add("status");
+        
+        newCard.appendChild(check);
     }
 }
 
