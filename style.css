@@ -74,7 +74,7 @@ input:focus {
     margin-top: 10px;
 }
 
-.books .add {
+.books button {
     margin-top: 15px;
     padding: 5px 40px;
     align-self: center;

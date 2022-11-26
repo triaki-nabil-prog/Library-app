@@ -1,12 +1,14 @@
 const title = document.querySelector(".bookTitle");
 const author = document.querySelector(".author");
 const pages = document.querySelector(".pages");
-const submit = document.querySelector(".add");
+const form = document.getElementById('form');
 const displayDiv = document.querySelector(".booksList");
 const cards = document.getElementsByClassName("card");
 const readStatus = document.querySelector("#styleLable");
 const readStatusDisplay = document.querySelector(".read");
 let myLibrary = [];
+
+
 
 readStatus.addEventListener("click", (e) => {
     if (readStatus.checked == true) {
@@ -27,7 +29,11 @@ function book(title, author, pages, readStatus) {
 }
 
 function addBookToLibrary(event) {
+
     const newBook = new book(title.value, author.value, pages.value, readStatus.checked);
+
+
+
     myLibrary.push(newBook);
     display();
     event.preventDefault();
@@ -91,7 +97,7 @@ const talesOfDemonsAndGods = new book("Tales of Demons and Gods", "Mad Snail", "
 myLibrary.push(talesOfDemonsAndGods);
 display();
 
-submit.addEventListener("click", addBookToLibrary);
+form.addEventListener("submit", addBookToLibrary);
 
 displayDiv.addEventListener("mouseover", (event) => {
 
