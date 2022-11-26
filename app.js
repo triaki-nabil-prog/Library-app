@@ -32,7 +32,14 @@ function addBookToLibrary(event) {
 
     const newBook = new book(title.value, author.value, pages.value, readStatus.checked);
 
+    for (let j = 0; j < myLibrary.length; j++) {
+        if (myLibrary[j].title === newBook.title) {
+            alert(" This book already exist in the library");
+            newBook = '';
+            return;
+        }
 
+    }
 
     myLibrary.push(newBook);
     display();
