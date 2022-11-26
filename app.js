@@ -75,8 +75,8 @@ display();
 // i am not proud how i made this  code 
 // delete the book when x button is clicked 
 submit.addEventListener("click", addBookToLibrary);
-displayDiv.addEventListener("click", () => {
-
+displayDiv.addEventListener("mouseover", (event) => {
+    event.stopPropagation();
     const deleteButtons = document.querySelectorAll(".deleteButton");
     deleteButtons.forEach(function (e) {
         e.addEventListener("click", (e) => {
