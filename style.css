@@ -134,10 +134,10 @@ input:focus {
     background-color: #FDF0D5;
     padding: 20px;
     display: grid;
-    
+
     grid-template-columns: minmax(0, 1fr) min-content;
     grid-template-areas: "title delete" "author ." "pages status";
-    
+
 
     -webkit-box-shadow: 0 0 7.5px 0.5px #003049;
     -moz-box-shadow: 0 0 7.5px 0.5px #003049;
@@ -147,10 +147,10 @@ input:focus {
 }
 
 .title {
-    
+
     grid-area: title;
     border-bottom: 1px solid #780000;
-    
+
 }
 
 .author {
@@ -163,10 +163,59 @@ input:focus {
     border-bottom: 1px solid #780000;
 }
 
-.status{
+.checkContainer {
     grid-area: status;
 
+    display: block;
+    position: relative;
+    margin-left: 10px;
+    cursor: pointer;
+    font-size: 25px;
+
 }
+
+.checkContainer input {
+    visibility: hidden;
+    cursor: pointer;
+}
+
+.mark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #780000;
+    
+
+}
+
+
+.checkContainer input:checked~.mark {
+    background-color: #669BBC;
+}
+
+.mark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.checkContainer input:checked~.mark:after {
+    display: block;
+}
+
+.checkContainer .mark:after {
+
+    left: 13px;
+    top: -12px;
+    width: 10px;
+    height: 30px;
+    border: solid #003049;
+    border-width: 0 4px 4px 0;
+    transform: rotate(45deg);
+}
+
 
 .card>div {
     color: #003049;
@@ -177,6 +226,7 @@ input:focus {
 }
 
 .deleteButton {
+    margin-left: 10px;
     grid-area: delete;
     width: fit-content;
     height: fit-content;

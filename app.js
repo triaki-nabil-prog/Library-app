@@ -6,11 +6,11 @@ const displayDiv = document.querySelector(".booksList");
 const cards = document.getElementsByClassName("card");
 let myLibrary = [];
 
-function book(title, author, pages,readStatus) {
+function book(title, author, pages) {
     this.title = title;
     this.author = author;
     this.pages = pages;
-    this.readStatus = readStatus;
+    // this.readStatus = readStatus;
 }
 
 function addBookToLibrary(event) {
@@ -26,6 +26,7 @@ function display() {
 
         const newCard = document.createElement("div");
         newCard.classList.add('card');
+        newCard.id = i;
         displayDiv.prepend(newCard);
 
         const newTitle = document.createElement("div");
@@ -49,14 +50,22 @@ function display() {
         buttonDel.id = i;
         newCard.appendChild(buttonDel);
 
+        const checkContainer = document.createElement("label");
+        checkContainer.htmlFor = `book${i}`;
+        checkContainer.classList.add("checkContainer");
+        newCard.appendChild(checkContainer);
+
         const check = document.createElement("input");
         check.type = "checkbox";
-        check.name = "name";
-        check.value = "value";
-        check.id = "id";
-        check.classList.add("status");
-        
-        newCard.appendChild(check);
+        check.name = "readStatus";
+        check.id = `book${i}`;
+
+        checkContainer.appendChild(check);
+
+        const styledCheck = document.createElement("span");
+        styledCheck.classList.add("mark");
+        checkContainer.appendChild(styledCheck);
+
     }
 }
 
@@ -69,18 +78,24 @@ myLibrary.push(talesOfDemonsAndGods);
 display();
 
 submit.addEventListener("click", addBookToLibrary);
+
 displayDiv.addEventListener("mouseover", (event) => {
     event.stopPropagation();
-    const deleteButtons = document.querySelectorAll(".deleteButton");
-    deleteButtons.forEach(function (e) {
-        e.addEventListener("click", (e) => {
-            var index = e.target.id;
-            console.log(index);
-            myLibrary.splice(index, 1);
-            displayDiv.innerHTML = ''
-            display();
+
+    if (event.target.matches(".deleteButton")) {
+
+        const deleteButtons = document.querySelectorAll(".deleteButton");
+
+        deleteButtons.forEach(function (button) {
+            button.addEventListener("click", (e) => {
+                
+                var index = e.target.id;
+                myLibrary.splice(index, 1);
+                const card =document.getElementById(index);
+                card.remove();
+            });
         });
-    });
+    }
 });
 
 
