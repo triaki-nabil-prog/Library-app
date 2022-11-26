@@ -13,15 +13,26 @@
     <div class="container">
 
         <div class="center">
-            <form action="" class="books">
+            <form action="/action_page.php" class="books" >
 
                 <label for="bookTitle">Book Title</label>
-                <input type="text" class="bookTitle">
+                <input type="text" class="bookTitle" required>
                 <label for="author">Author</label>
-                <input type="text" class="author">
+                <input type="text" class="author" required>
                 <label for="pages">Pages</label>
-                <input type="number" class="pages">
-                <button type="submit" class="submit"> Add to Library</button>
+                <input type="number" class="pages" required>
+
+                <label for="styleLable"><div class="read">Not Read</div></label>
+                <div class="checkContainer formCheck">
+                    <label for="styleLable">
+                        <input type="checkbox" name="readStatus" id="styleLable" >
+                        <span class="mark"></span>
+                    </label>
+                </div>
+
+                <input type="submit"  class="add" value="Add to Library">
+            
+                
             </form>
             <div class="listeTitle">My Library</div>
             <div class="booksList">

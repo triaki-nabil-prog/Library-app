@@ -1,20 +1,33 @@
 const title = document.querySelector(".bookTitle");
 const author = document.querySelector(".author");
 const pages = document.querySelector(".pages");
-const submit = document.querySelector(".submit");
+const submit = document.querySelector(".add");
 const displayDiv = document.querySelector(".booksList");
 const cards = document.getElementsByClassName("card");
+const readStatus = document.querySelector("#styleLable");
+const readStatusDisplay = document.querySelector(".read");
 let myLibrary = [];
 
-function book(title, author, pages) {
+readStatus.addEventListener("click", (e) => {
+    if (readStatus.checked == true) {
+        readStatusDisplay.textContent = "Read";
+        readStatusDisplay.style.color = "#669BBC";
+    }
+    else {
+        readStatusDisplay.textContent = "Not Read";
+        readStatusDisplay.style.color = "#FDF0D5";
+    }
+});
+
+function book(title, author, pages, readStatus) {
     this.title = title;
     this.author = author;
     this.pages = pages;
-    // this.readStatus = readStatus;
+    this.readStatus = readStatus;
 }
 
 function addBookToLibrary(event) {
-    const newBook = new book(title.value, author.value, pages.value)
+    const newBook = new book(title.value, author.value, pages.value, readStatus.checked);
     myLibrary.push(newBook);
     display();
     event.preventDefault();
@@ -59,6 +72,7 @@ function display() {
         check.type = "checkbox";
         check.name = "readStatus";
         check.id = `book${i}`;
+        check.checked = myLibrary[i].readStatus;
 
         checkContainer.appendChild(check);
 
@@ -69,33 +83,34 @@ function display() {
     }
 }
 
-const grid = new book("Overgeard", "park Saenal", "1429");
+const grid = new book("Overgeard", "park Saenal", "1429", true);
 myLibrary.push(grid);
-const solo = new book("Solo Leveling", "Mackoy Macasampon", "350");
+const solo = new book("Solo Leveling", "Mackoy Macasampon", "350", false);
 myLibrary.push(solo);
-const talesOfDemonsAndGods = new book("Tales of Demons and Gods", "Mad Snail", "495");
+const talesOfDemonsAndGods = new book("Tales of Demons and Gods", "Mad Snail", "495", true);
 myLibrary.push(talesOfDemonsAndGods);
 display();
 
 submit.addEventListener("click", addBookToLibrary);
 
 displayDiv.addEventListener("mouseover", (event) => {
-    event.stopPropagation();
 
     if (event.target.matches(".deleteButton")) {
 
         const deleteButtons = document.querySelectorAll(".deleteButton");
-
+        console.log(deleteButtons);
         deleteButtons.forEach(function (button) {
             button.addEventListener("click", (e) => {
-                
-                var index = e.target.id;
+
+                const index = e.target.id;
                 myLibrary.splice(index, 1);
-                const card =document.getElementById(index);
-                card.remove();
+                displayDiv.innerHTML = "";
+                display();
+
             });
         });
     }
+    event.stopPropagation();
 });
 
 

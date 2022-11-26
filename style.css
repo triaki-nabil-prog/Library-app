@@ -74,7 +74,7 @@ input:focus {
     margin-top: 10px;
 }
 
-.books button {
+.books .add {
     margin-top: 50px;
     padding: 5px 40px;
     align-self: center;
@@ -172,6 +172,7 @@ input:focus {
     cursor: pointer;
     font-size: 25px;
 
+
 }
 
 .checkContainer input {
@@ -186,7 +187,7 @@ input:focus {
     height: 25px;
     width: 25px;
     background-color: #780000;
-    
+
 
 }
 
@@ -216,6 +217,16 @@ input:focus {
     transform: rotate(45deg);
 }
 
+.formCheck {
+    display: flex;
+    justify-content: center;
+}
+
+.formCheck .mark {
+    top: 0px;
+    left: 40%;
+    background-color: #FDF0D5;
+}
 
 .card>div {
     color: #003049;
