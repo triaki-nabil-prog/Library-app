@@ -134,7 +134,7 @@ input:focus {
     background-color: #FDF0D5;
     padding: 20px;
     display: grid;
-    width: ;
+    
     grid-template-columns: minmax(0, 1fr) min-content;
     grid-template-areas: "title delete" "author author" "pages pages";
     
