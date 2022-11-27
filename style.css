@@ -14,21 +14,21 @@ body {
     height: 100vh;
     width: 100vw;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
     background-image: url("bookshelf-large.webp");
 }
 
-.center {
+/* .center {
     flex: 1;
     display: flex;
     flex-direction: column;
     max-width: 50vw;
     height: 100vh;
     align-items: center;
-}
+} */
 
 .books {
-    flex: 1;
     max-width: 60vw;
     display: flex;
     flex-direction: column;
@@ -41,7 +41,7 @@ body {
     backdrop-filter: blur(9px);
     border: 1px solid rgba(120, 0, 0, 0.275);
 
-    border-radius: 4vw/4vw;
+    border-radius: 1rem/1rem;
 }
 
 .books label {
@@ -82,7 +82,7 @@ input:focus {
     color: #669BBC;
     font-size: 1rem;
     font-weight: bold;
-    border-radius: 4vw/4vw;
+    border-radius: 1rem/1rem;
     border: 0px;
 
     -webkit-box-shadow: 0 0 16.5px 8px #780000;
@@ -100,9 +100,9 @@ input:focus {
     flex-direction: column;
     gap: 20px;
     padding: 20px;
-    flex: 1;
-    width: 100%;
-    margin: 20px;
+    margin-top: 20px;
+    max-width: 70vw;
+    
 
     background: rgba(120, 0, 0, 0.55);
     -webkit-backdrop-filter: blur(9px);
@@ -110,11 +110,12 @@ input:focus {
     border: 1px solid rgba(120, 0, 0, 0.275);
     overflow: scroll;
 
-    border-radius: 4vw/4vw;
+    border-radius: 1rem/1rem;
 
 }
 
 .listeTitle {
+    width: fit-content;
     margin-top: 20px;
     font-size: 2rem;
     font-weight: bold;
@@ -130,7 +131,7 @@ input:focus {
 }
 
 .card {
-    border-radius: 4vw/4vw;
+    border-radius: 1rem/1rem;
     background-color: #FDF0D5;
     padding: 20px;
     display: grid;
@@ -254,7 +255,8 @@ input:focus {
 
 
 @media only screen and (max-width: 700px) {
-    .center {
-        max-width: 90vw;
+    .booksList {
+        width: 100vw;
     }
+
 }
