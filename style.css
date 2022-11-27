@@ -101,7 +101,7 @@ input:focus {
     gap: 20px;
     padding: 20px;
     margin-top: 20px;
-    max-width: 70vw;
+    width: 70vw;
     
 
     background: rgba(120, 0, 0, 0.55);
@@ -256,7 +256,7 @@ input:focus {
 
 @media only screen and (max-width: 700px) {
     .booksList {
-        width: 100vw;
+        width: 90vw;
     }
 
 }
