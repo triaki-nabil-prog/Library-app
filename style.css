@@ -19,14 +19,7 @@ body {
     background-image: url("bookshelf-large.webp");
 }
 
-/* .center {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    max-width: 50vw;
-    height: 100vh;
-    align-items: center;
-} */
+
 
 .books {
     max-width: 60vw;
@@ -95,7 +88,7 @@ input:focus {
 
 
 
-.booksList {
+.books-list {
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -114,7 +107,7 @@ input:focus {
 
 }
 
-.listeTitle {
+.liste-title {
     width: fit-content;
     margin-top: 20px;
     font-size: 2rem;
@@ -164,7 +157,7 @@ input:focus {
     border-bottom: 1px solid #780000;
 }
 
-.checkContainer {
+.check-container {
     grid-area: status;
 
     display: block;
@@ -176,7 +169,7 @@ input:focus {
 
 }
 
-.checkContainer input {
+.check-container input {
     visibility: hidden;
     cursor: pointer;
 }
@@ -193,7 +186,7 @@ input:focus {
 }
 
 
-.checkContainer input:checked~.mark {
+.check-container input:checked~.mark {
     background-color: #669BBC;
 }
 
@@ -203,11 +196,11 @@ input:focus {
     display: none;
 }
 
-.checkContainer input:checked~.mark:after {
+.check-container input:checked~.mark:after {
     display: block;
 }
 
-.checkContainer .mark:after {
+.check-container .mark:after {
 
     left: 13px;
     top: -12px;
@@ -218,12 +211,12 @@ input:focus {
     transform: rotate(45deg);
 }
 
-.formCheck {
+.form-check {
     display: flex;
     justify-content: center;
 }
 
-.formCheck .mark {
+.form-check .mark {
     top: 0px;
     left: 40%;
     background-color: #FDF0D5;
@@ -237,7 +230,7 @@ input:focus {
     overflow-wrap: break-word;
 }
 
-.deleteButton {
+.delete-button {
     margin-left: 10px;
     grid-area: delete;
     width: fit-content;
@@ -255,7 +248,7 @@ input:focus {
 
 
 @media only screen and (max-width: 700px) {
-    .booksList {
+    .books-list {
         width: 90vw;
     }
 

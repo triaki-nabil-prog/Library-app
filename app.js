@@ -1,10 +1,10 @@
-const title = document.querySelector(".bookTitle");
+const title = document.querySelector(".book-title");
 const author = document.querySelector(".author");
 const pages = document.querySelector(".pages");
 const form = document.getElementById('form');
-const displayDiv = document.querySelector(".booksList");
+const displayDiv = document.querySelector(".books-list");
 const cards = document.getElementsByClassName("card");
-const readStatus = document.querySelector("#styleLable");
+const readStatus = document.querySelector("#style-lable");
 const readStatusDisplay = document.querySelector(".read");
 let myLibrary = [];
 
@@ -73,19 +73,19 @@ function display() {
         newCard.appendChild(newPages);
 
         const buttonDel = document.createElement("button")
-        buttonDel.classList.add("deleteButton");
+        buttonDel.classList.add("delete-button");
         buttonDel.textContent = "X";
         buttonDel.id = i;
         newCard.appendChild(buttonDel);
 
         const checkContainer = document.createElement("label");
         checkContainer.htmlFor = `book${i}`;
-        checkContainer.classList.add("checkContainer");
+        checkContainer.classList.add("check-container");
         newCard.appendChild(checkContainer);
 
         const check = document.createElement("input");
         check.type = "checkbox";
-        check.name = "readStatus";
+        check.name = "read-status";
         check.id = `book${i}`;
         check.checked = myLibrary[i].readStatus;
 
@@ -110,9 +110,9 @@ form.addEventListener("submit", addBookToLibrary);
 
 displayDiv.addEventListener("mouseover", (event) => {
 
-    if (event.target.matches(".deleteButton")) {
+    if (event.target.matches(".delete-button")) {
 
-        const deleteButtons = document.querySelectorAll(".deleteButton");
+        const deleteButtons = document.querySelectorAll(".delete-button");
         
         deleteButtons.forEach(function (button) {
             button.addEventListener("click", (e) => {
