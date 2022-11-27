@@ -8,19 +8,6 @@ const readStatus = document.querySelector("#style-lable");
 const readStatusDisplay = document.querySelector(".read");
 let myLibrary = [];
 
-
-
-readStatus.addEventListener("click", (e) => {
-    if (readStatus.checked == true) {
-        readStatusDisplay.textContent = "Read";
-        readStatusDisplay.style.color = "#669BBC";
-    }
-    else {
-        readStatusDisplay.textContent = "Not Read";
-        readStatusDisplay.style.color = "#FDF0D5";
-    }
-});
-
 function book(title, author, pages, readStatus) {
     this.title = title;
     this.author = author;
@@ -29,20 +16,7 @@ function book(title, author, pages, readStatus) {
 }
 
 function addBookToLibrary(event) {
-
     const newBook = new book(title.value, author.value, pages.value, readStatus.checked);
-// the alert is reloading the page wich is a bad behavior for the data displayed
-    // for (let j = 0; j < myLibrary.length; j++) {
-    //     if (myLibrary[j].title === newBook.title) {
-            
-    //         alert(" This book already exist in the library");
-        
-    //         newBook = '';
-    //         return ;
-    //     }
-
-    // } 
-
     myLibrary.push(newBook);
     display();
     event.preventDefault();
@@ -88,45 +62,60 @@ function display() {
         check.name = "read-status";
         check.id = `book${i}`;
         check.checked = myLibrary[i].readStatus;
-
         checkContainer.appendChild(check);
 
         const styledCheck = document.createElement("span");
         styledCheck.classList.add("mark");
+        styledCheck.id=i;
         checkContainer.appendChild(styledCheck);
-
     }
 }
 
-const grid = new book("Overgeard", "park Saenal", "1429", true);
-myLibrary.push(grid);
-const solo = new book("Solo Leveling", "Mackoy Macasampon", "350", false);
-myLibrary.push(solo);
-const talesOfDemonsAndGods = new book("Tales of Demons and Gods", "Mad Snail", "495", true);
-myLibrary.push(talesOfDemonsAndGods);
-display();
-
 form.addEventListener("submit", addBookToLibrary);
 
+readStatus.addEventListener("click", (e) => {
+    if (readStatus.checked == true) {
+        readStatusDisplay.textContent = "Read";
+        readStatusDisplay.style.color = "#669BBC";
+    }
+    else {
+        readStatusDisplay.textContent = "Not Read";
+        readStatusDisplay.style.color = "#FDF0D5";
+    }
+});
+
 displayDiv.addEventListener("mouseover", (event) => {
-
+    console.log(event.target);
     if (event.target.matches(".delete-button")) {
-
         const deleteButtons = document.querySelectorAll(".delete-button");
-        
         deleteButtons.forEach(function (button) {
             button.addEventListener("click", (e) => {
-
                 const index = e.target.id;
                 myLibrary.splice(index, 1);
                 displayDiv.innerHTML = "";
                 display();
+            });
+        });
+    }
 
+    else if (event.target.matches(".mark")) {
+        const booksChecks = document.querySelectorAll(".mark");
+        booksChecks.forEach(function (checked) {
+            checked.addEventListener("click", (e) => {
+                const index = e.target.id;
+                myLibrary[index].readStatus = !myLibrary[index].readStatus;
             });
         });
     }
     event.stopPropagation();
 });
 
+const grid = new book("Overgeard", "park Saenal", "1429", true);
+const solo = new book("Solo Leveling", "Mackoy Macasampon", "350", false);
+const talesOfDemonsAndGods = new book("Tales of Demons and Gods", "Mad Snail", "495", true);
 
+myLibrary.push(grid);
+myLibrary.push(solo);
+myLibrary.push(talesOfDemonsAndGods);
 
+display();

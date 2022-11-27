@@ -19,8 +19,6 @@ body {
     background-image: url("bookshelf-large.webp");
 }
 
-
-
 .books {
     max-width: 60vw;
     display: flex;
@@ -28,12 +26,10 @@ body {
     padding: 20px;
     margin-top: 10px;
     color: #fdf0d5;
-
     background: rgba(120, 0, 0, 0.55);
     -webkit-backdrop-filter: blur(9px);
     backdrop-filter: blur(9px);
     border: 1px solid rgba(120, 0, 0, 0.275);
-
     border-radius: 1rem/1rem;
 }
 
@@ -41,11 +37,9 @@ body {
     font-size: 1.5rem;
     font-weight: bold;
     align-self: center;
-
 }
 
 .books input {
-
     padding: 1px 8px;
     -webkit-box-shadow: 0 0 7.5px 0.5px #003049;
     -moz-box-shadow: 0 0 7.5px 0.5px #003049;
@@ -55,12 +49,10 @@ body {
     background-color: #FDF0D5;
     color: #003049;
     font-weight: bold;
-
 }
 
 input:focus {
     background-color: #93c5e3;
-
 }
 
 .books>* {
@@ -77,13 +69,10 @@ input:focus {
     font-weight: bold;
     border-radius: 1rem/1rem;
     border: 0px;
-
     -webkit-box-shadow: 0 0 16.5px 8px #780000;
     -moz-box-shadow: 0 0 16.5px 8px #780000;
     box-shadow: 0 0 16.5px 8px #780000;
-
     border: 1px solid #780000;
-
 }
 
 .books-list {
@@ -93,16 +82,12 @@ input:focus {
     padding: 20px;
     margin-top: 20px;
     width: 50vw;
-    
-
     background: rgba(120, 0, 0, 0.55);
     -webkit-backdrop-filter: blur(9px);
     backdrop-filter: blur(9px);
     border: 1px solid rgba(120, 0, 0, 0.275);
     overflow: scroll;
-
     border-radius: 1rem/1rem;
-
 }
 
 .liste-title {
@@ -116,9 +101,7 @@ input:focus {
     -webkit-backdrop-filter: blur(9px);
     backdrop-filter: blur(9px);
     border: 1px solid rgba(120, 0, 0, 0.275);
-
     border-radius: 4vw/4vw;
-
 }
 
 .card {
@@ -126,23 +109,17 @@ input:focus {
     background-color: #FDF0D5;
     padding: 20px;
     display: grid;
-
     grid-template-columns: minmax(0, 1fr) min-content;
     grid-template-areas: "title delete" "author ." "pages status";
-
-
     -webkit-box-shadow: 0 0 7.5px 0.5px #003049;
     -moz-box-shadow: 0 0 7.5px 0.5px #003049;
     box-shadow: 0 0 7.5px 0.5px #003049;
     border: 0;
-
 }
 
 .title {
-
     grid-area: title;
     border-bottom: 1px solid #780000;
-
 }
 
 .author {
@@ -157,14 +134,11 @@ input:focus {
 
 .check-container {
     grid-area: status;
-
     display: block;
     position: relative;
     margin-left: 10px;
     cursor: pointer;
     font-size: 25px;
-
-
 }
 
 .check-container input {
@@ -179,10 +153,7 @@ input:focus {
     height: 25px;
     width: 25px;
     background-color: #780000;
-
-
 }
-
 
 .check-container input:checked~.mark {
     background-color: #669BBC;
@@ -199,7 +170,6 @@ input:focus {
 }
 
 .check-container .mark:after {
-
     left: 13px;
     top: -12px;
     width: 10px;
@@ -240,10 +210,7 @@ input:focus {
     background-color: #003049;
     color: #669BBC;
     border: 0;
-
 }
-
-
 
 @media only screen and (max-width: 700px) {
     .books-list {
