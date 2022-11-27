@@ -31,15 +31,17 @@ function book(title, author, pages, readStatus) {
 function addBookToLibrary(event) {
 
     const newBook = new book(title.value, author.value, pages.value, readStatus.checked);
+// the alert is reloading the page wich is a bad behavior for the data displayed
+    // for (let j = 0; j < myLibrary.length; j++) {
+    //     if (myLibrary[j].title === newBook.title) {
+            
+    //         alert(" This book already exist in the library");
+        
+    //         newBook = '';
+    //         return ;
+    //     }
 
-    for (let j = 0; j < myLibrary.length; j++) {
-        if (myLibrary[j].title === newBook.title) {
-            alert(" This book already exist in the library");
-            newBook = '';
-            return;
-        }
-
-    }
+    // } 
 
     myLibrary.push(newBook);
     display();
