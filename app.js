@@ -85,7 +85,7 @@ readStatus.addEventListener("click", (e) => {
 });
 
 displayDiv.addEventListener("mouseover", (event) => {
-    console.log(event.target);
+    
     if (event.target.matches(".delete-button")) {
         const deleteButtons = document.querySelectorAll(".delete-button");
         deleteButtons.forEach(function (button) {
