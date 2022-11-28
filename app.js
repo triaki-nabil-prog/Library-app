@@ -8,11 +8,11 @@ const readStatus = document.querySelector("#style-lable");
 const readStatusDisplay = document.querySelector(".read");
 let myLibrary = [];
 
-function book(title, author, pages, readStatus) {
+function book(title, author, pages, readBook) {
     this.title = title;
     this.author = author;
     this.pages = pages;
-    this.readStatus = readStatus;
+    this.readBook = readBook;
 }
 
 function addBookToLibrary(event) {
@@ -61,7 +61,7 @@ function display() {
         check.type = "checkbox";
         check.name = "read-status";
         check.id = `book${i}`;
-        check.checked = myLibrary[i].readStatus;
+        check.checked = myLibrary[i].readBook;
         checkContainer.appendChild(check);
 
         const styledCheck = document.createElement("span");
@@ -103,7 +103,7 @@ displayDiv.addEventListener("mouseover", (event) => {
         booksChecks.forEach(function (checked) {
             checked.addEventListener("click", (e) => {
                 const index = e.target.id;
-                myLibrary[index].readStatus = !myLibrary[index].readStatus;
+                myLibrary[index].readBook = !myLibrary[index].readBook;
             });
         });
     }
