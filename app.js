@@ -66,7 +66,7 @@ function display() {
 
         const styledCheck = document.createElement("span");
         styledCheck.classList.add("mark");
-        styledCheck.id=i;
+        styledCheck.id = i;
         checkContainer.appendChild(styledCheck);
     }
 }
@@ -85,7 +85,7 @@ readStatus.addEventListener("click", (e) => {
 });
 
 displayDiv.addEventListener("mouseover", (event) => {
-    
+
     if (event.target.matches(".delete-button")) {
         const deleteButtons = document.querySelectorAll(".delete-button");
         deleteButtons.forEach(function (button) {
@@ -109,6 +109,25 @@ displayDiv.addEventListener("mouseover", (event) => {
     }
     event.stopPropagation();
 });
+
+
+var modal = document.getElementById("myModal");
+var btn = document.getElementById("myBtn");
+var span = document.getElementsByClassName("close")[0];
+
+btn.onclick = function () {
+    modal.style.display = "block";
+}
+
+span.onclick = function () {
+    modal.style.display = "none";
+}
+
+window.onclick = function (event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
 
 const grid = new book("Overgeard", "park Saenal", "1429", true);
 const solo = new book("Solo Leveling", "Mackoy Macasampon", "350", false);

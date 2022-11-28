@@ -11,24 +11,28 @@
 
 <body>
     <main class="container">
-        <form id="form" class="books">
-            <label for="book-title">Book Title</label>
-            <input type="text" class="book-title" required />
-            <label for="author">Author</label>
-            <input type="text" class="author" required />
-            <label for="pages">Pages</label>
-            <input type="number" class="pages" required />
-            <label for="style-lable">
-                <div class="read">Not Read</div>
-            </label>
-            <div class="check-container form-check">
+        <button id="myBtn">+ Add a book</button>
+        <div class="modal" id="myModal">
+            <form id="form" class="books modal-content">
+                <span class="close">&times;</span>
+                <label for="book-title">Book Title</label>
+                <input type="text" class="book-title" required />
+                <label for="author">Author</label>
+                <input type="text" class="author" required />
+                <label for="pages">Pages</label>
+                <input type="number" class="pages" required />
                 <label for="style-lable">
-                    <input type="checkbox" name="read-status" id="style-lable" />
-                    <span class="mark"></span>
+                    <div class="read">Not Read</div>
                 </label>
-            </div>
-            <button type="submit">Add to Library</button>
-        </form>
+                <div class="check-container form-check">
+                    <label for="style-lable">
+                        <input type="checkbox" name="read-status" id="style-lable" />
+                        <span class="mark"></span>
+                    </label>
+                </div>
+                <button type="submit">Add to Library</button>
+            </form>
+        </div>
         <div class="liste-title">My Library</div>
         <div class="books-list">
         </div>
