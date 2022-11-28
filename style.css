@@ -264,5 +264,8 @@ max-height: fit-content;
     .books-list {
         width: 90vw;
     }
+    .form-check .mark {
+        left: 44%;
+    }
 
 }
