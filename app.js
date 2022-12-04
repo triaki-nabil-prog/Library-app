@@ -6,7 +6,26 @@ const displayDiv = document.querySelector(".books-list");
 const cards = document.getElementsByClassName("card");
 const readStatus = document.querySelector("#style-lable");
 const readStatusDisplay = document.querySelector(".read");
+
+var modal = document.getElementById("myModal");
+var btn = document.getElementById("myBtn");
+var span = document.getElementsByClassName("close")[0];
+
+const grid = new book("Overgeard", "park Saenal", "1429", true);
+const solo = new book("Solo Leveling", "Mackoy Macasampon", "350", false);
+const talesOfDemonsAndGods = new book("Tales of Demons and Gods", "Mad Snail", "495", true);
+
 let myLibrary = [];
+
+form.addEventListener("submit", addBookToLibrary);
+readStatus.addEventListener("click", bookReadStatus);
+AddGlobalEventListener("click",".delete-button", deleteBook);
+AddGlobalEventListener("click",".mark", BookStatusChange);
+
+myLibrary.push(grid);
+myLibrary.push(solo);
+myLibrary.push(talesOfDemonsAndGods);
+display();
 
 function book(title, author, pages, readBook) {
     this.title = title;
@@ -71,9 +90,7 @@ function display() {
     }
 }
 
-form.addEventListener("submit", addBookToLibrary);
-
-readStatus.addEventListener("click", (e) => {
+function bookReadStatus(){
     if (readStatus.checked == true) {
         readStatusDisplay.textContent = "Read";
         readStatusDisplay.style.color = "#669BBC";
@@ -82,33 +99,29 @@ readStatus.addEventListener("click", (e) => {
         readStatusDisplay.textContent = "Not Read";
         readStatusDisplay.style.color = "#FDF0D5";
     }
-});
+}
 
-document.addEventListener("click", (e) => {
+function AddGlobalEventListener(type, selector, callback){
+    document.addEventListener(type, (e)=>{
 
-    if (e.target.matches(".delete-button")) {
-        const index = e.target.id;
-        myLibrary.splice(index, 1);
-        displayDiv.innerHTML = "";
-        display();
-    }
-    e.stopPropagation();
-});
+        if(e.target.matches(selector)){
+            callback(e);
+        }
+    });
+}
 
-document.addEventListener("click", (e) => {
+function deleteBook(e){
+    const index = e.target.id;
+    myLibrary.splice(index, 1);
+    displayDiv.innerHTML = "";
+    display();
+}
 
-    if (e.target.matches(".mark")) {
-        const index = e.target.id;
-        myLibrary[index].readBook = !myLibrary[index].readBook;
-        display();
-    }
-    e.stopPropagation();
-});
-
-
-var modal = document.getElementById("myModal");
-var btn = document.getElementById("myBtn");
-var span = document.getElementsByClassName("close")[0];
+function BookStatusChange(e){
+    const index = e.target.id;
+    myLibrary[index].readBook = !myLibrary[index].readBook;
+    display();
+}
 
 btn.onclick = function () {
     modal.style.display = "block";
@@ -124,12 +137,4 @@ window.onclick = function (event) {
     }
 }
 
-const grid = new book("Overgeard", "park Saenal", "1429", true);
-const solo = new book("Solo Leveling", "Mackoy Macasampon", "350", false);
-const talesOfDemonsAndGods = new book("Tales of Demons and Gods", "Mad Snail", "495", true);
 
-myLibrary.push(grid);
-myLibrary.push(solo);
-myLibrary.push(talesOfDemonsAndGods);
-
-display();
