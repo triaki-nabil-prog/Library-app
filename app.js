@@ -84,30 +84,25 @@ readStatus.addEventListener("click", (e) => {
     }
 });
 
-displayDiv.addEventListener("mouseover", (event) => {
+document.addEventListener("click", (e) => {
 
-    if (event.target.matches(".delete-button")) {
-        const deleteButtons = document.querySelectorAll(".delete-button");
-        deleteButtons.forEach(function (button) {
-            button.addEventListener("click", (e) => {
-                const index = e.target.id;
-                myLibrary.splice(index, 1);
-                displayDiv.innerHTML = "";
-                display();
-            });
-        });
+    if (e.target.matches(".delete-button")) {
+        const index = e.target.id;
+        myLibrary.splice(index, 1);
+        displayDiv.innerHTML = "";
+        display();
     }
+    e.stopPropagation();
+});
 
-    else if (event.target.matches(".mark")) {
-        const booksChecks = document.querySelectorAll(".mark");
-        booksChecks.forEach(function (checked) {
-            checked.addEventListener("click", (e) => {
-                const index = e.target.id;
-                myLibrary[index].readBook = !myLibrary[index].readBook;
-            });
-        });
+document.addEventListener("click", (e) => {
+
+    if (e.target.matches(".mark")) {
+        const index = e.target.id;
+        myLibrary[index].readBook = !myLibrary[index].readBook;
+        display();
     }
-    event.stopPropagation();
+    e.stopPropagation();
 });
 
 
